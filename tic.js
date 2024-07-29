@@ -25,7 +25,9 @@ function checkBoard(){
     for(const array of GameBoard.gameboard){
         for(const item of array){
             if(item === 0){
-                return item;
+                return {
+                    alert: 'Next player'
+                }
             }
         }
     }
@@ -34,7 +36,96 @@ function checkBoard(){
     }
 }
 
-
+function winningSenarios(){
+   
+    if(GameBoard.gameboard[0][0] == GameBoard.gameboard[0][1] == GameBoard.gameboard[0][2]){
+        if(GameBoard.gameboard[0][0] === 'X'){
+            return{
+                winner: `${Players.firstPlayer} is the winner`
+            }
+        }else if(GameBoard.gameboard[0][0] === 'O'){
+            return{
+                winner: `${Players.secondPlayer} is the winner`
+            }
+        }
+    }
+    else if(GameBoard.gameboard[1][0] == GameBoard.gameboard[1][1] == GameBoard.gameboard[1][2]){
+        if(GameBoard.gameboard[1][0] === 'X'){
+            return{
+                winner: `${Players.firstPlayer} is the winner`
+            }
+        }else if(GameBoard.gameboard[1][0] === 'O'){
+            return{
+                winner: `${Players.secondPlayer} is the winner`
+            }
+        }
+    }
+    else if(GameBoard.gameboard[2][0] == GameBoard.gameboard[2][1] == GameBoard.gameboard[2][2]){
+        if(GameBoard.gameboard[2][0] === 'X'){
+            return{
+                winner: `${Players.firstPlayer} is the winner`
+            }
+        }else if(GameBoard.gameboard[2][0] === 'O'){
+            return{
+                winner: `${Players.secondPlayer} is the winner`
+            }
+        }
+    else if(GameBoard.gameboard[0][0] == GameBoard.gameboard[1][0] == GameBoard.gameboard[2][0]){
+        if(GameBoard.gameboard[0][0] === 'X'){
+            return{
+                winner: `${Players.firstPlayer} is the winner`
+            }
+        }else if(GameBoard.gameboard[0][0] === 'O'){
+            return{
+                winner: `${Players.secondPlayer} is the winner`
+            }
+        }
+    }
+    else if(GameBoard.gameboard[0][1] == GameBoard.gameboard[1][1] == GameBoard.gameboard[2][1]){
+        if(GameBoard.gameboard[0][1] === 'X'){
+            return{
+                winner: `${Players.firstPlayer} is the winner`
+            }
+        }else if(GameBoard.gameboard[0][1] === 'O'){
+            return{
+                winner: `${Players.secondPlayer} is the winner`
+            }
+        }
+    }
+    else if(GameBoard.gameboard[0][2] == GameBoard.gameboard[1][2] == GameBoard.gameboard[2][2]){
+        if(GameBoard.gameboard[0][2] === 'X'){
+            return{
+                winner: `${Players.firstPlayer} is the winner`
+            }
+        }else if(GameBoard.gameboard[0][2] === 'O'){
+            return{
+                winner: `${Players.secondPlayer} is the winner`
+            }
+        }
+    }
+    else if(GameBoard.gameboard[0][0] == GameBoard.gameboard[1][1] == GameBoard.gameboard[2][2]){if(GameBoard.gameboard[0][0] === 'X'){
+        return{
+            winner: `${Players.firstPlayer} is the winner`
+        }
+    }else if(GameBoard.gameboard[0][0] === 'O'){
+        return{
+            winner: `${Players.secondPlayer} is the winner`
+        }
+    }}
+    else if(GameBoard.gameboard[0][2] == GameBoard.gameboard[1][1] == GameBoard.gameboard[2][0]){
+        if(GameBoard.gameboard[0][2] === 'X'){
+            return{
+                winner: `${Players.firstPlayer} is the winner`
+            }
+        }else if(GameBoard.gameboard[0][2] === 'O'){
+            return{
+                winner: `${Players.secondPlayer} is the winner`
+            }
+        }
+        
+    }
+}
+};
 
 function takeFirstChoice(choice){
     let firstSign = 'X';
@@ -45,7 +136,8 @@ function takeFirstChoice(choice){
             GameBoard.gameboard[0].fill(firstSign, choice, choice + 1);
         return{newBoard: GameBoard.gameboard}}else if(checkBoard(newBoard) !== 0){
             return{
-                alert: 'game over'
+                alert: 'game over',
+                status: winningSenarios(newBoard)
             }
         }else if(GameBoard.gameboard[0][choice] !== 0){
             return{alert: 'This block is taken'}
@@ -55,7 +147,8 @@ function takeFirstChoice(choice){
         if(GameBoard.gameboard[1][choiceEdit] === 0){GameBoard.gameboard[1].fill(firstSign, choiceEdit, choiceEdit + 1);
         return{newBoard: GameBoard.gameboard}}else if(checkBoard(newBoard) !== 0){
             return{
-                alert: 'game over'
+                alert: 'game over',
+                status: winningSenarios(newBoard)
             }}else if(GameBoard.gameboard[1][choiceEdit] !== 0){
             return{alert: 'This block is taken'}}
     }else if(choice >= 6 && choice <= 8){
@@ -63,7 +156,8 @@ function takeFirstChoice(choice){
         if(GameBoard.gameboard[2][choiceEdit] === 0){GameBoard.gameboard[2].fill(firstSign, choiceEdit, choiceEdit + 1);
         return{newBoard: GameBoard.gameboard}}else if(checkBoard(newBoard) !== 0){
             return{
-                alert: 'game over'
+                alert: 'game over',
+                status: winningSenarios(newBoard)
             }}else if(GameBoard.gameboard[2][choiceEdit] !== 0){
             return{alert: 'This block is taken'}}
     }
@@ -80,7 +174,8 @@ function takeSecondChoice(choice2){
         return{newBoard: GameBoard.gameboard}}
         }else if(checkBoard(newBoard) !== 0){
             return{
-                alert: 'game over'
+                alert: 'game over',
+                status: winningSenarios(newBoard)
             }}else if(GameBoard.gameboard[0][choice2] !== 0){
             return{alert: 'This block is taken'}
         }
@@ -90,7 +185,8 @@ function takeSecondChoice(choice2){
             GameBoard.gameboard[1].fill(firstSign, choiceEdit, choiceEdit + 1);
         return{newBoard: GameBoard.gameboard}}else if(checkBoard(newBoard) !== 0){
             return{
-                alert: 'game over'
+                alert: 'game over',
+                status: winningSenarios(newBoard)
             }}else if(GameBoard.gameboard[1][choiceEdit] !== 0){
             return{alert: 'This block is taken'}}
     }else if(choice2 >= 6 && choice2 <= 8){
@@ -99,12 +195,14 @@ function takeSecondChoice(choice2){
             GameBoard.gameboard[2].fill(firstSign, choiceEdit, choiceEdit + 1);
         return{newBoard: GameBoard.gameboard}}else if(checkBoard(newBoard) !== 0){
             return{
-                alert: 'game over'
+                alert: 'game over',
+                status: winningSenarios(newBoard)
             }}else if(GameBoard.gameboard[2][choiceEdit] !== 0){
             return{alert: 'This block is taken'}}
     }
 }
  
+
 
 
 
