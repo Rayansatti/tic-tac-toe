@@ -25,9 +25,7 @@ function checkBoard(){
     for(const array of GameBoard.gameboard){
         for(const item of array){
             if(item === 0){
-                return {
-                    alert: 'Next player'
-                }
+                return 0;
             }
         }
     }
@@ -36,198 +34,216 @@ function checkBoard(){
     }
 }
 
-function winningSenarios(){
+function winningSenarios(array){
     let winnerX = [];
     let winnerO = [];
+    let first = array[0][0];
+    let sec = array[0][1];
+    let third = array[0][2];
+    let frth = array[1][0];
+    let fifth = array[1][1];
+    let sixth = array[1][2];
+    let sev = array[2][0];
+    let eight = array[2][1];
+    let ninth = array[2][2];
+    
 
-    function checkDraws(winnerX, winnerO){
-        if(winnerX.length == winnerO.length){
-            return{
-                winner: `Tie`
-            }
-        }else if(winnerX.length > winnerO){
-            return{
-                winner: `${Players.firstPlayer} is the winner`
-            }
-        }else if(winnerX.length < winnerO){
-            return{
-                winner: `${Players.secondPlayer} is the winner`
-            }
-        }
-    }
    
-    if(GameBoard.gameboard[0][0] == GameBoard.gameboard[0][1] == GameBoard.gameboard[0][2]){
-        if(GameBoard.gameboard[0][0] === 'X'){
+   console.log(first);
+   
+    if(first && sec && third == 'X'){
             return{
-                winner: `${Players.firstPlayer} is the winner`,
+                winner: 'X is the winner',
                 result: winnerX.push(Players.firstSign),
                 winners: winnerX,
-                draws: checkDraws()
+                draws: checkDraws(winnerX, winnerO)
             }
-        }else if(GameBoard.gameboard[0][0] === 'O'){
+        }else if(first && sec && third == 'O'){
             return{
-                winner: `${Players.secondPlayer} is the winner`,
+                winner: 'O is the winner',
                 result: winnerO.push(Players.secondSign),
                 winners: winnerO,
-                draws: checkDraws()
+                draws: checkDraws(winnerX, winnerO)
             }
         }
-    }
-    else if(GameBoard.gameboard[1][0] == GameBoard.gameboard[1][1] == GameBoard.gameboard[1][2]){
-        if(GameBoard.gameboard[1][0] === 'X'){
+    
+    else if(frth && fifth && sixth == 'X'){
+        
             return{
-                winner: `${Players.firstPlayer} is the winner`,
+                winner: 'X is the winner',
                 result: winnerX.push(Players.firstSign),
                 winners: winnerX ,
-                draws: checkDraws()
+                draws: checkDraws(winnerX, winnerO)
             }
-        }else if(GameBoard.gameboard[1][0] === 'O'){
+        }else if(frth && fifth && sixth == 'O'){
             return{
-                winner: `${Players.secondPlayer} is the winner`,
+                winner: 'O is the winner',
                 result: winnerO.push(Players.secondSign),
                 winners: winnerO,
-                draws: checkDraws()
+                draws: checkDraws(winnerX, winnerO)
             }
         }
-    }
-    else if(GameBoard.gameboard[2][0] == GameBoard.gameboard[2][1] == GameBoard.gameboard[2][2]){
-        if(GameBoard.gameboard[2][0] === 'X'){
+    else if(sev && eight && ninth == 'X'){
             return{
-                winner: `${Players.firstPlayer} is the winner`,
+                winner: 'X is the winner',
                 result: winnerX.push(Players.firstSign),
                 winners: winnerX ,
-                draws: checkDraws()
+                draws: checkDraws(winnerX, winnerO)
             }
-        }else if(GameBoard.gameboard[2][0] === 'O'){
+        }else if(sev && eight && ninth == 'O'){
             return{
-                winner: `${Players.secondPlayer} is the winner`,
+                winner: 'O is the winner',
                 result: winnerO.push(Players.secondSign),
                 winners: winnerO,
-                draws: checkDraws()
+                draws: checkDraws(winnerX, winnerO)
             }
         }
-    else if(GameBoard.gameboard[0][0] == GameBoard.gameboard[1][0] == GameBoard.gameboard[2][0]){
-        if(GameBoard.gameboard[0][0] === 'X'){
+    else if(first && frth & sev == 'X'){
             return{
-                winner: `${Players.firstPlayer} is the winner`,
+                winner: 'X is the winner',
                 result: winnerX.push(Players.firstSign),
                 winners: winnerX ,
-                draws: checkDraws()
+                draws: checkDraws(winnerX, winnerO)
             }
-        }else if(GameBoard.gameboard[0][0] === 'O'){
+        }else if(first && frth & sev == 'O'){
             return{
-                winner: `${Players.secondPlayer} is the winner`,
+                winner: 'O is the winner',
                 result: winnerO.push(Players.secondSign),
                 winners: winnerO,
-                draws: checkDraws()
+                draws: checkDraws(winnerX, winnerO)
             }
         }
-    }
-    else if(GameBoard.gameboard[0][1] == GameBoard.gameboard[1][1] == GameBoard.gameboard[2][1]){
-        if(GameBoard.gameboard[0][1] === 'X'){
+    
+    else if(sec && fifth && eight == 'X'){
             return{
-                winner: `${Players.firstPlayer} is the winner`,
+                winner: 'X is the winner',
                 result: winnerX.push(Players.firstSign),
                 winners: winnerX ,
-                draws: checkDraws()
+                draws: checkDraws(winnerX, winnerO)
             }
-        }else if(GameBoard.gameboard[0][1] === 'O'){
+        }else if(sec && fifth && eight == 'O'){
             return{
-                winner: `${Players.secondPlayer} is the winner`,
+                winner: 'O is the winner',
                 result: winnerO.push(Players.secondSign),
                 winners: winnerO,
-                draws: checkDraws()
+                draws: checkDraws(winnerX, winnerO)
             }
         }
-    }
-    else if(GameBoard.gameboard[0][2] == GameBoard.gameboard[1][2] == GameBoard.gameboard[2][2]){
-        if(GameBoard.gameboard[0][2] === 'X'){
+    else if(third && sixth && ninth == 'X'){
             return{
-                winner: `${Players.firstPlayer} is the winner`,
+                winner: 'X is the winner',
                 result: winnerX.push(Players.firstSign),
                 winners: winnerX ,
-                draws: checkDraws()
+                draws: checkDraws(winnerX, winnerO)
             }
-        }else if(GameBoard.gameboard[0][2] === 'O'){
+        }else if(third && sixth && ninth == 'O'){
             return{
-                winner: `${Players.secondPlayer} is the winner`,
+                winner: 'O is the winner',
                 result: winnerO.push(Players.secondSign),
                 winners: winnerO,
-                draws: checkDraws()
+                draws: checkDraws(winnerX, winnerO)
             }
         }
-    }
-    else if(GameBoard.gameboard[0][0] == GameBoard.gameboard[1][1] == GameBoard.gameboard[2][2]){if(GameBoard.gameboard[0][0] === 'X'){
+    
+    else if(first && fifth && ninth == 'X'){
+        
         return{
-            winner: `${Players.firstPlayer} is the winner`,
+            winner: 'X is the winner',
             result: winnerX.push(Players.firstSign),
             winners: winnerX ,
-            draws: checkDraws()
+            draws: checkDraws(winnerX, winnerO)
         }
-    }else if(GameBoard.gameboard[0][0] === 'O'){
+    }else if(first && fifth && ninth == 'O'){
         return{
-            winner: `${Players.secondPlayer} is the winner`,
+            winner: 'O is the winner',
             result: winnerO.push(Players.secondSign),
             winners: winnerO,
-            draws: checkDraws()
+            draws: checkDraws(winnerX, winnerO)
         }
-    }}
-    else if(GameBoard.gameboard[0][2] == GameBoard.gameboard[1][1] == GameBoard.gameboard[2][0]){
-        if(GameBoard.gameboard[0][2] === 'X'){
+    }
+    else if(third && fifth && sev == 'X'){
             return{
-                winner: `${Players.firstPlayer} is the winner`,
+                winner: 'X is the winner',
                 result: winnerX.push(Players.firstSign),
                 winners: winnerX ,
-                draws: checkDraws()
+                draws: checkDraws(winnerX, winnerO)
             }
-        }else if(GameBoard.gameboard[0][2] === 'O'){
+        }else if(third && fifth && sev == 'O'){
             return{
-                winner: `${Players.secondPlayer} is the winner`,
+                winner: 'O is the winner',
                 result: winnerO.push(Players.secondSign),
                 winners: winnerO,
-                draws: checkDraws()
+                draws: checkDraws(winnerX, winnerO)
             }
         }
         
+    else{
+        console.log('error')
+    }
+
+    function checkDraws(winnerX, winnerO){
+        let xLength = winnerX.length;
+        let oLength = winnerO.length;
+
+     if(xLength + oLength === 9){if(xLength == oLength){
+        return{
+            winner: `Tie`
+        }
+     }else if(xLength > oLength){
+        return{
+            winner: 'X is the winner'
+        }
+     }else if(xLength < oLength){
+        return{
+            winner: 'O is the winner'
+        }
+     }}else{
+        return 'continue playing'
     }
 }
-};
+}
 
 function takeFirstChoice(choice){
     let firstSign = 'X';
     let newBoard ;
-   // let newBoard;
+   
     if(choice >= 0 && choice <= 2){
         if(GameBoard.gameboard[0][choice] === 0){
             GameBoard.gameboard[0].fill(firstSign, choice, choice + 1);
             
-        return{newBoard: GameBoard.gameboard}}else if(checkBoard(newBoard) !== 0){
+            return{newBoard: GameBoard.gameboard}
+        }else if(checkBoard(newBoard) !==  0){
+            let array = GameBoard.gameboard;
+             winningSenarios(array)
             return{
                 newBoard: GameBoard.gameboard,
                 alert: 'game over',
-                status: winningSenarios(newBoard)
+                status: winningSenarios(GameBoard.gameboard)
             }
         }else if(GameBoard.gameboard[0][choice] !== 0){
-            return{alert: 'This block is taken'}
+           return{alert: 'This block is taken'}
+           
         }
     }else if(choice >= 3 && choice <= 5){
         let choiceEdit = choice - 3;
         if(GameBoard.gameboard[1][choiceEdit] === 0){GameBoard.gameboard[1].fill(firstSign, choiceEdit, choiceEdit + 1);
-        return{newBoard: GameBoard.gameboard}}else if(checkBoard(newBoard) !== 0){
+        return{newBoard: GameBoard.gameboard}
+    }else if(checkBoard(newBoard) !== 0){
             return{
                 newBoard: GameBoard.gameboard,
                 alert: 'game over',
-                status: winningSenarios(newBoard)
+                status: winningSenarios(GameBoard.gameboard)
             }}else if(GameBoard.gameboard[1][choiceEdit] !== 0){
             return{alert: 'This block is taken'}}
     }else if(choice >= 6 && choice <= 8){
         let choiceEdit = choice - 6;
         if(GameBoard.gameboard[2][choiceEdit] === 0){GameBoard.gameboard[2].fill(firstSign, choiceEdit, choiceEdit + 1);
-        return{newBoard: GameBoard.gameboard}}else if(checkBoard(newBoard) !== 0){
+        return{newBoard: GameBoard.gameboard}
+    }else if(checkBoard(newBoard) !== 0){
             return{
                 newBoard: GameBoard.gameboard,
                 alert: 'game over',
-                status: winningSenarios(newBoard)
+                status: winningSenarios(GameBoard.gameboard)
             }}else if(GameBoard.gameboard[2][choiceEdit] !== 0){
             return{alert: 'This block is taken'}}
     }
@@ -246,7 +262,7 @@ function takeSecondChoice(choice2){
             return{
                 newBoard: GameBoard.gameboard,
                 alert: 'game over',
-                status: winningSenarios(newBoard)
+                status: winningSenarios(GameBoard.gameboard)
             }}else if(GameBoard.gameboard[0][choice2] !== 0){
             return{alert: 'This block is taken'}
         }
@@ -254,11 +270,12 @@ function takeSecondChoice(choice2){
         let choiceEdit = choice2 - 3;
         if(GameBoard.gameboard[1][choiceEdit] === 0){
             GameBoard.gameboard[1].fill(firstSign, choiceEdit, choiceEdit + 1);
-        return{newBoard: GameBoard.gameboard}}else if(checkBoard(newBoard) !== 0){
+            return{newBoard: GameBoard.gameboard}
+            }else if(checkBoard(newBoard) !== 0){
             return{
                 newBoard: GameBoard.gameboard,
                 alert: 'game over',
-                status: winningSenarios(newBoard)
+                status: winningSenarios(GameBoard.gameboard)
             }}else if(GameBoard.gameboard[1][choiceEdit] !== 0){
             return{alert: 'This block is taken'}}
     }else if(choice2 >= 6 && choice2 <= 8){
@@ -275,14 +292,5 @@ function takeSecondChoice(choice2){
     }
 }
  
-//take players choices in order
-
-
-
-
-
-
-//check for draws
-// create a function to take players choices in order
-// 
-//
+//check issue with weinningSenarios when passing newBOrd or GameBoard.gameboard
+//returns undefined
