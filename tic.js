@@ -37,155 +37,93 @@ function checkBoard(){
 function winningSenarios(array){
     let winnerX = [];
     let winnerO = [];
-    let first = array[0][0];
-    let sec = array[0][1];
-    let third = array[0][2];
-    let frth = array[1][0];
-    let fifth = array[1][1];
-    let sixth = array[1][2];
-    let sev = array[2][0];
-    let eight = array[2][1];
-    let ninth = array[2][2];
+    const first = array[0][0];
+    const sec = array[0][1];
+    const third = array[0][2];
+    const frth = array[1][0];
+    const fifth = array[1][1];
+    const sixth = array[1][2];
+    const sev = array[2][0];
+    const eight = array[2][1];
+    const ninth = array[2][2];
     
 
    
-   console.log(first);
+ 
    
-    if(first && sec && third == 'X'){
-            return{
-                winner: 'X is the winner',
-                result: winnerX.push(Players.firstSign),
-                winners: winnerX,
-                draws: checkDraws(winnerX, winnerO)
-            }
-        }else if(first && sec && third == 'O'){
-            return{
-                winner: 'O is the winner',
-                result: winnerO.push(Players.secondSign),
-                winners: winnerO,
-                draws: checkDraws(winnerX, winnerO)
-            }
+    if(first === 'X'  && sec === 'X' && third === 'X'){
+        winnerX.push(1);
+        }
+
+    if(first  ==='O' && sec  ==='O' && third === 'O'){
+            winnerO.push(2);
         }
     
-    else if(frth && fifth && sixth == 'X'){
+    if(frth === 'X' && fifth === 'X' && sixth === 'X'){
+            winnerX.push(3);
+        }
         
-            return{
-                winner: 'X is the winner',
-                result: winnerX.push(Players.firstSign),
-                winners: winnerX ,
-                draws: checkDraws(winnerX, winnerO)
-            }
-        }else if(frth && fifth && sixth == 'O'){
-            return{
-                winner: 'O is the winner',
-                result: winnerO.push(Players.secondSign),
-                winners: winnerO,
-                draws: checkDraws(winnerX, winnerO)
-            }
+    if(frth  ==='O' && fifth  ==='O' && sixth === 'O'){
+            winnerO.push(4);
         }
-    else if(sev && eight && ninth == 'X'){
-            return{
-                winner: 'X is the winner',
-                result: winnerX.push(Players.firstSign),
-                winners: winnerX ,
-                draws: checkDraws(winnerX, winnerO)
-            }
-        }else if(sev && eight && ninth == 'O'){
-            return{
-                winner: 'O is the winner',
-                result: winnerO.push(Players.secondSign),
-                winners: winnerO,
-                draws: checkDraws(winnerX, winnerO)
-            }
+
+    if(sev === 'X' && eight === 'X' && ninth === 'X'){
+        winnerX.push(5);
         }
-    else if(first && frth & sev == 'X'){
-            return{
-                winner: 'X is the winner',
-                result: winnerX.push(Players.firstSign),
-                winners: winnerX ,
-                draws: checkDraws(winnerX, winnerO)
-            }
-        }else if(first && frth & sev == 'O'){
-            return{
-                winner: 'O is the winner',
-                result: winnerO.push(Players.secondSign),
-                winners: winnerO,
-                draws: checkDraws(winnerX, winnerO)
-            }
-        }
-    
-    else if(sec && fifth && eight == 'X'){
-            return{
-                winner: 'X is the winner',
-                result: winnerX.push(Players.firstSign),
-                winners: winnerX ,
-                draws: checkDraws(winnerX, winnerO)
-            }
-        }else if(sec && fifth && eight == 'O'){
-            return{
-                winner: 'O is the winner',
-                result: winnerO.push(Players.secondSign),
-                winners: winnerO,
-                draws: checkDraws(winnerX, winnerO)
-            }
-        }
-    else if(third && sixth && ninth == 'X'){
-            return{
-                winner: 'X is the winner',
-                result: winnerX.push(Players.firstSign),
-                winners: winnerX ,
-                draws: checkDraws(winnerX, winnerO)
-            }
-        }else if(third && sixth && ninth == 'O'){
-            return{
-                winner: 'O is the winner',
-                result: winnerO.push(Players.secondSign),
-                winners: winnerO,
-                draws: checkDraws(winnerX, winnerO)
-            }
-        }
-    
-    else if(first && fifth && ninth == 'X'){
         
-        return{
-            winner: 'X is the winner',
-            result: winnerX.push(Players.firstSign),
-            winners: winnerX ,
-            draws: checkDraws(winnerX, winnerO)
+    if(sev ==='O' && eight  ==='O' && ninth === 'O'){
+            winnerO.push(6);
         }
-    }else if(first && fifth && ninth == 'O'){
-        return{
-            winner: 'O is the winner',
-            result: winnerO.push(Players.secondSign),
-            winners: winnerO,
-            draws: checkDraws(winnerX, winnerO)
+
+    if(first === 'X' && frth === 'X' & sev === 'X'){
+        winnerX.push(7);
         }
+        
+    if(first  ==='O' && frth  ==='O' & sev === 'O'){
+            winnerO.push(8);
+        }
+    
+    if(sec === 'X' && fifth === 'X' && eight === 'X'){
+        winnerX.push(9);
+        }
+        
+    if(sec  ==='O' && fifth  ==='O' && eight === 'O'){
+            winnerO.push(10);
+        }
+
+    if(third === 'X' && sixth === 'X' && ninth === 'X'){
+        winnerX.push(11);
+        }
+        
+    if(third  ==='O' && sixth  ==='O' && ninth === 'O'){
+            winnerO.push(12);
+        }
+    
+    if(first === 'X' && fifth === 'X' && ninth === 'X'){
+        winnerX.push(13);
     }
-    else if(third && fifth && sev == 'X'){
-            return{
-                winner: 'X is the winner',
-                result: winnerX.push(Players.firstSign),
-                winners: winnerX ,
-                draws: checkDraws(winnerX, winnerO)
-            }
-        }else if(third && fifth && sev == 'O'){
-            return{
-                winner: 'O is the winner',
-                result: winnerO.push(Players.secondSign),
-                winners: winnerO,
-                draws: checkDraws(winnerX, winnerO)
-            }
+    
+    if(first  ==='O' && fifth  ==='O' && ninth === 'O'){
+        winnerO.push(14);
+    }
+
+    if(third === 'X' && fifth === 'X' && sev === 'X'){
+        winnerX.push(15);
         }
         
-    else{
-        console.log('error')
-    }
+    if(third  ==='O' && fifth  ==='O' && sev === 'O'){
+            winnerO.push(16);
+        }
+        
+    
+
+    console.log(winnerX, winnerO);
 
     function checkDraws(winnerX, winnerO){
         let xLength = winnerX.length;
         let oLength = winnerO.length;
 
-     if(xLength + oLength === 9){if(xLength == oLength){
+     if(xLength == oLength){
         return{
             winner: `Tie`
         }
@@ -197,10 +135,9 @@ function winningSenarios(array){
         return{
             winner: 'O is the winner'
         }
-     }}else{
-        return 'continue playing'
-    }
+     }
 }
+console.log(checkDraws(winnerX, winnerO));
 }
 
 function takeFirstChoice(choice){
@@ -292,5 +229,4 @@ function takeSecondChoice(choice2){
     }
 }
  
-//check issue with weinningSenarios when passing newBOrd or GameBoard.gameboard
-//returns undefined
+
