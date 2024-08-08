@@ -1,9 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <link href="./tic.css" rel="stylesheet" type="text/css">
         <title>Tic Tac Toe</title>
     </head>
+    <script src="./tic.js"></script>
     <body>
         <h1>Tic Tac Toe</h1>
+        <div id="start">
+            <input type="text" id="name1" placeholder="First player's name">
+            <input type="text" id="name2" placeholder="Second player's name">
+            <button id="startButton">start</button>
+        </div>
+        <div id="board">
+            <div id="firstRow">
+                <button id="first"></button>
+                <button id="second"></button>
+                <button id="third"></button>
+            </div>
+            <div id="secondRow">
+                <button id="fourth"></button>
+                <button id="fifth"></button>
+                <button id="sixth"></button>
+            </div>
+            <div id="thirdRow">
+                <button id="seventh"></button>
+                <button id="eighth"></button>
+                <button id="ninth"></button>
+            </div>
+        </div>
+        <div id="finish">
+            <button id="finishButton">Finish</button>
+        </div>
     </body>
 </html>

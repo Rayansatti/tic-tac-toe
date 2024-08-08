@@ -1,0 +1,54 @@
+*{
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+h1{
+    text-align: center;
+}
+#board{
+    
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
+    row-gap: 10px;
+    margin: 10px;
+}
+
+#firstRow{
+    display: grid;
+    
+    grid-row: 1/2;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 10px;
+    
+}
+
+#secondRow{
+    display: grid;
+    
+    grid-row: 2/3;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 10px;
+}
+
+#thirdRow{
+    display: grid;
+    
+    grid-row: 3/4;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 10px;
+}
+
+#firstRow > button{
+    min-height: 20px;
+}
+
+#start{
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    row-gap: 10px;
+    margin: 15px;
+}
+#finish{
+    display: grid;
+    margin: 30px;
+}

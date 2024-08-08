@@ -150,8 +150,7 @@ function takeFirstChoice(choice){
             
             return{newBoard: GameBoard.gameboard}
         }else if(checkBoard(newBoard) !==  0){
-            let array = GameBoard.gameboard;
-             winningSenarios(array)
+            
             return{
                 newBoard: GameBoard.gameboard,
                 alert: 'game over',
@@ -229,4 +228,16 @@ function takeSecondChoice(choice2){
     }
 }
  
+//render the contents of the gameboard array to the webpage 
+function contents(){
 
+   //first names
+   //if start clicked without names error
+
+   //when start clicked the first round goes to first player
+   //then the second
+   //then the first and so on
+   
+   //when all boxes filled if one more is clicked twice it ends the game or 
+   //if finish clicked it ends the game as well
+}
