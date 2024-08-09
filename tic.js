@@ -229,10 +229,53 @@ function takeSecondChoice(choice2){
 }
  
 //render the contents of the gameboard array to the webpage 
-function contents(){
+function start(){
 
    //first names
    //if start clicked without names error
+   let alert = document.getElementById('alerts');
+   let name1 = document.getElementById('name1');
+   let name2 = document.getElementById('name2');
+
+   //console.log(name1.value)
+   if(name1.value == '' || name2.value == ''){
+    alert.innerText = 'write your name';
+
+   }else if(name1.value !== '' && name2.value !== ''){
+    alert.innerText = `${name1.value} is X , ${name2.value} is O.  ${name1.value} start!`
+    
+   }
+    
+   }
+
+   function rounds(button){
+    let alert = document.getElementById('alerts');
+    let name1 = document.getElementById('name1');
+    let name2 = document.getElementById('name2');
+    let box = document.getElementsByClassName('box');
+    let round = [];
+    
+    if(alert.innerText = `${name1.value} is X , ${name2.value} is O.  ${name1.value} start!`){
+        
+        let roundTurn = round.length;
+        
+        if(GameBoard.gameboard == 0){
+            alert.innerText = 'X round 1';
+            let buttonId = button.id;
+            console.log(takeFirstChoice(buttonId))
+            round.push('X');     
+         
+        }else if(roundTurn == 1){
+            alert.innerText = 'O round 1';
+            let buttonId = button.id;
+            console.log(takeFirstChoice(buttonId))
+            round.push('O');
+        }
+        
+        
+        
+    }
+   }
 
    //when start clicked the first round goes to first player
    //then the second
@@ -240,4 +283,4 @@ function contents(){
    
    //when all boxes filled if one more is clicked twice it ends the game or 
    //if finish clicked it ends the game as well
-}
+
