@@ -46,7 +46,7 @@ function winningSenarios(array){
     const sev = array[2][0];
     const eight = array[2][1];
     const ninth = array[2][2];
-    
+    let alert = document.getElementById('alerts');
 
    
  
@@ -122,18 +122,20 @@ function winningSenarios(array){
     function checkDraws(winnerX, winnerO){
         let xLength = winnerX.length;
         let oLength = winnerO.length;
+        let name1 = document.getElementById('name1').value;
+        let name2 = document.getElementById('name2').value;
 
      if(xLength == oLength){
         return{
-            winner: `Tie`
+            winner: alert.innerText = 'tie'
         }
      }else if(xLength > oLength){
         return{
-            winner: 'X is the winner'
+            winner: alert.innerText = `${name1} X is the winner`
         }
      }else if(xLength < oLength){
         return{
-            winner: 'O is the winner'
+            winner: alert.innerText = `${name2} O is the winner`
         }
      }
 }
@@ -236,7 +238,9 @@ function start(){
    let alert = document.getElementById('alerts');
    let name1 = document.getElementById('name1');
    let name2 = document.getElementById('name2');
-
+   
+   
+   
    //console.log(name1.value)
    if(name1.value == '' || name2.value == ''){
     alert.innerText = 'write your name';
@@ -248,34 +252,68 @@ function start(){
     
    }
 
-   function rounds(button){
-    let alert = document.getElementById('alerts');
-    let name1 = document.getElementById('name1');
-    let name2 = document.getElementById('name2');
-    let box = document.getElementsByClassName('box');
-    let round = [];
+
     
-    if(alert.innerText = `${name1.value} is X , ${name2.value} is O.  ${name1.value} start!`){
-        
-        let roundTurn = round.length;
-        
-        if(GameBoard.gameboard == 0){
-            alert.innerText = 'X round 1';
-            let buttonId = button.id;
-            console.log(takeFirstChoice(buttonId))
-            round.push('X');     
-         
-        }else if(roundTurn == 1){
-            alert.innerText = 'O round 1';
-            let buttonId = button.id;
-            console.log(takeFirstChoice(buttonId))
-            round.push('O');
-        }
-        
-        
-        
+   let roundsArr = [];
+
+
+   function rounds(button){
+
+    let alert = document.getElementById('alerts');
+   let name1 = document.getElementById('name1').value;
+   let name2 = document.getElementById('name2').value;
+
+    if(roundsArr.length == 0 && button.id !== "finishButton"){
+        console.log(takeFirstChoice(parseInt(button.id)));
+        console.log(button.id)
+       
+        roundsArr.push('X');
+        button.innerText = 'X'
+        console.log(roundsArr);
+        alert.innerText = `${name2}'s turn!`;
+        button.style.backgroundColor = 'lightcyan';
+        return roundsArr;
     }
+    console.log(roundsArr);
+    
+        if(roundsArr.length > 0 && roundsArr[roundsArr.length - 1] === 'X' && button.id !== "finishButton"){
+            console.log(takeSecondChoice(parseInt(button.id)));
+            console.log(typeof button.id)
+            
+            roundsArr.push('O');
+            button.innerText = 'O'
+            alert.innerText = `${name1}'s turn!`;
+            button.style.backgroundColor = 'yellowgreen';
+            return roundsArr;
+        }
+    
+    console.log(roundsArr);
+   
+        if(roundsArr[(roundsArr.length) - 1] === 'O' && button.id !== "finishButton"){
+            console.log(takeFirstChoice(parseInt(button.id)));
+            console.log(button.id)
+            button.innerText = 'X'
+            roundsArr.push('X');
+            alert.innerText = `${name2}'s turn!`;
+            button.style.backgroundColor = 'lightcyan';
+            return roundsArr;
+        }
+    
+    console.log(roundsArr);
+    
+
+    if(button.id == "finishButton"){
+        if(roundsArr.length == 9){
+            takeSecondChoice(0);
+            alert.innerText = `${String(checkDraws((winnerX, winnerO)))}`;
+        }else{
+            alert.innerText = 'The game not finished yet! reset the game!'
+        }
+    }
+
+   
    }
+   
 
    //when start clicked the first round goes to first player
    //then the second
