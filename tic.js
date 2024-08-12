@@ -311,9 +311,14 @@ function start(){
         }
     }
 
+
    
    }
    
+
+   function reset(){
+    location.reload();
+   }
 
    //when start clicked the first round goes to first player
    //then the second
